@@ -6,15 +6,16 @@ export const Header = () => {
   const { pathname } = useLocation();
   const isHome = useMemo(() => pathname === "/", [pathname]);
 
-  const {fetchCategories} = useAppStore();
+  const { fetchCategories, categories } = useAppStore();
 
   useEffect(() => {
     fetchCategories();
-  }, [])
-
+  }, []);
 
   return (
-    <header className={isHome ? 'bg-header bg-center bg-cover':'bg-slate-800'}>
+    <header
+      className={isHome ? "bg-header bg-center bg-cover" : "bg-slate-800"}
+    >
       <div className="mx-auto container px-5 py-16">
         <div className="flex justify-between items-center">
           <div>
@@ -79,6 +80,14 @@ export const Header = () => {
                 className="p-3 w-full rounded-lg focus:outline-none"
               >
                 <option value="">-- Seleccione --</option>
+                {categories.drinks.map((category) => (
+                  <option
+                    value={category.strCategory}
+                    key={category.strCategory}
+                  >
+                    {category.strCategory}
+                  </option>
+                ))}
               </select>
             </div>
             <input
