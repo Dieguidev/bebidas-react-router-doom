@@ -1,6 +1,7 @@
 import { StateCreator } from 'zustand'
 import { Recipe } from '../types'
 
+
 export type FavoritesSliceType = {
   favorites: Recipe[],
   hendleClickFavorite: (recipe: Recipe) => void,
