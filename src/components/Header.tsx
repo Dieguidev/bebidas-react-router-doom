@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -11,11 +11,16 @@ export const Header = () => {
             </div>
           </div>
 
-          <nav>
-
+          <nav className="flex gap-4">
+            <Link to="/" className="text-white uppercase font-bold">
+              Inicio
+            </Link>
+            <Link to="/favoritos" className="text-white uppercase font-bold">
+              Favoritos
+            </Link>
           </nav>
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
