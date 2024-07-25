@@ -10,7 +10,7 @@ export const Header = () => {
   const { pathname } = useLocation();
   const isHome = useMemo(() => pathname === "/", [pathname]);
 
-  const { fetchCategories, categories } = useAppStore();
+  const { fetchCategories, categories, searchRecipes } = useAppStore();
 
   useEffect(() => {
     fetchCategories();
@@ -34,6 +34,7 @@ export const Header = () => {
       return;
     }
     //consultar las recetas
+    searchRecipes(searchFilters);
   }
 
   return (
