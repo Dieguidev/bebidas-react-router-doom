@@ -4,7 +4,7 @@ import { useAppStore } from "../stores/useAppStore";
 import { Recipe } from "../types";
 
 export default function Modal() {
-  const { modal, closeModal, selectedRecipe, hendleClickFavorite } =
+  const { modal, closeModal, selectedRecipe, hendleClickFavorite, favoriteExists } =
     useAppStore();
 
   const renderIngredients = () => {
@@ -91,7 +91,7 @@ export default function Modal() {
                       className="w-full rounded bg-orange-600 p-3 font-bold uppercase text-white shadow hover:bg-orange-500"
                       onClick={() => hendleClickFavorite(selectedRecipe)}
                     >
-                      Agregar a Favoritos
+                      {favoriteExists(selectedRecipe.idDrink)? 'Eliminar Favorito':'Agregar Favorito'}
                     </button>
                   </div>
                 </Dialog.Panel>
