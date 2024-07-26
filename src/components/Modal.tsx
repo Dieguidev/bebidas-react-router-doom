@@ -36,7 +36,7 @@ export default function Modal() {
     if (favoriteExists(recipe.idDrink)){
       showNotification({text:'Se agregó a favoritos', error:false, })
     } else {
-      showNotification({text:'Se eliminó de favoritos', error:true, })
+      showNotification({text:'Se eliminó de favoritos', error:false, })
     }
   }
 
